@@ -1,4 +1,4 @@
-name: Post welcome comment
+name: Post welcome comment 2
 on:
   pull_request:
     types: [opened]
@@ -7,6 +7,7 @@ jobs:
     name: Post welcome comment
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/build@v1
       - run: gh pr comment $PR_URL --body "Welcome to the repository!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
